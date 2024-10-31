@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { logout } from '../routes/authSlice';
+import { logout } from '../store/authSlice';
 import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
@@ -19,10 +19,10 @@ const Home = () => {
   };
 
   return (
-    <div>
-      <h2>Bienvenido a la Página Principal</h2>
-      <button onClick={handleLogout}>Cerrar Sesión</button>
-      <button onClick={handleGoToResults}>Ver Resultados</button> 
+    <div className="container">
+        <h2>Bienvenido a la Página Principal</h2>
+        <button onClick={handleLogout}>Cerrar Sesión</button>
+        <button onClick={handleGoToResults}>Ver Resultados</button> 
     </div>
   );
 };

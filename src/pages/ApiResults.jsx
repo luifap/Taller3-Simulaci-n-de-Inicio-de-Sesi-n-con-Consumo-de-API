@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 const ApiResults = () => {
   const [movies, setMovies] = useState([]);
-  const [error, setError] = useState(null); // Estado para manejar errores
+  const [error, setError] = useState(null); 
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -17,7 +17,7 @@ const ApiResults = () => {
         setMovies(data.results);
       } catch (error) {
         console.error('Error al consumir la API:', error);
-        setError(error.message); // Establece el mensaje de error
+        setError(error.message); 
       }
     };
 
@@ -25,27 +25,30 @@ const ApiResults = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Películas Populares</h1>
-      {error && <p>Error: {error}</p>} {/* Muestra el error si existe */}
-      <ul>
-        {movies.length > 0 ? (
-          movies.map((movie) => (
-            <li key={movie.id}>
-              <h3>{movie.title}</h3>
-              <img
-                src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-                alt={movie.title}
-              />
-              <p>{movie.overview}</p>
-            </li>
-          ))
-        ) : (
-          <p>No hay películas disponibles.</p>
-        )}
-      </ul>
+    <div className="container">
+        <h1>Películas Populares</h1>
+        {error && <p>Error: {error}</p>}
+        <div className="flex-container"> {/* Cambié el nombre a 'flex-container' */}
+            {movies.length > 0 ? (
+                movies.map((movie) => (
+                    <div className="card" key={movie.id}>
+                        <img
+                            src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                            alt={movie.title}
+                        />
+                        <h3>{movie.title}</h3>
+                        <p>{movie.overview}</p>
+                    </div>
+                ))
+            ) : (
+                <p>No hay películas disponibles.</p>
+            )}
+        </div>
     </div>
   );
+
+
+
 };
 
 export default ApiResults;
