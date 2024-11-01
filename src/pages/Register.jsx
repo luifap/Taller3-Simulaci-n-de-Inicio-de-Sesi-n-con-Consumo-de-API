@@ -18,7 +18,7 @@ const Register = () => {
     <div>
       <h2>Registro</h2>
       <form onSubmit={handleSubmit}>
-        <input type="text" name="username" placeholder="Correo electrònico" onChange={handleChange} />
+        <input type="text" name="username" placeholder="Usuario" onChange={handleChange} />
         <input type="password" name="password" placeholder="Contraseña" onChange={handleChange} />
         <button type="submit">Registrar</button>
       </form>

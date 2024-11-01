@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { login } from '../store/authSlice'; 
+import { login } from '../routes/authSlice'; 
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
@@ -25,7 +25,7 @@ const Login = () => {
     <div>
       <h2>Iniciar Sesión</h2>
       <form onSubmit={handleSubmit}>
-        <input type="text" name="username" placeholder="Correo electrónico" onChange={handleChange} />
+        <input type="text" name="username" placeholder="Usuario" onChange={handleChange} />
         <input type="password" name="password" placeholder="Contraseña" onChange={handleChange} />
         <button type="submit">Ingresar</button>
       </form>
