@@ -17,7 +17,7 @@ const Login = () => {
 
     if (credentials.username && credentials.password) {
       dispatch(login());
-      navigate('/results'); 
+      navigate('/home'); 
     }
   };
 
