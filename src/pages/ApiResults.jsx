@@ -3,8 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 const ApiResults = () => {
   const [movies, setMovies] = useState([]);
-  const [error, setError] = useState(null); 
-  const navigate = useNavigate();
+  const [error, setError] = useState(null); // Estado para manejar errores
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -27,13 +26,13 @@ const ApiResults = () => {
   }, []);
 
   return (
-    <div className="api-results-container">
+    <div>
       <h1>Películas Populares</h1>
-      {error && <p>Error: {error}</p>} 
-      <ul className="movies-list">
+      {error && <p>Error: {error}</p>} {/* Muestra el error si existe */}
+      <ul>
         {movies.length > 0 ? (
           movies.map((movie) => (
-            <li className="movie-item" key={movie.id}>
+            <li key={movie.id}>
               <h3>{movie.title}</h3>
               <img
                 src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
@@ -46,11 +45,11 @@ const ApiResults = () => {
           <p>No hay películas disponibles.</p>
         )}
       </ul>
-      <button className="home-button" onClick={() => navigate('/home')}>
-        Volver al Home
-      </button>
     </div>
   );
+
+
+
 };
 
 export default ApiResults;
